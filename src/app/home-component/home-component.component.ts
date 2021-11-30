@@ -33,7 +33,7 @@ export class HomeComponentComponent implements OnInit {
   cuadroNombre:string = "";
   cuadroApellido:string = "";
   cuadroCargo:string = "";
-  cuadroSalario:number = 0;
+  cuadroSalario:string = "";
 
   agregarEmpleado(){
 

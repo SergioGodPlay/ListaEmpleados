@@ -1,6 +1,6 @@
 export class Empleado{
 
-    constructor (nombre:string, apellido:string, cargo:string, salario:number){
+    constructor (nombre:string, apellido:string, cargo:string, salario:string){
 
         this.nombre = nombre;
         this.apellido = apellido;
@@ -11,5 +11,5 @@ export class Empleado{
     nombre:string = "";
     apellido:string = "";
     cargo:string = "";
-    salario:number = 0;
+    salario:string = "";
 }

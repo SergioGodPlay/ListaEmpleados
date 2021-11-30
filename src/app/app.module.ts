@@ -12,13 +12,15 @@ import { ProjectsComponentComponent } from './projects-component/projects-compon
 import { AboutUsComponentComponent } from './about-us-component/about-us-component.component';
 import { ContactComponentComponent } from './contact-component/contact-component.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ActualizaComponentComponent } from './actualiza-component/actualiza-component.component';
 
 const AppRoutes:Routes=[
 
   {path:"",component:HomeComponentComponent},
   {path:"proyectos", component:ProjectsComponentComponent},
   {path:"acercaDe", component:AboutUsComponentComponent},
-  {path:"contacto", component:ContactComponentComponent}
+  {path:"contacto", component:ContactComponentComponent},
+  {path:"actualiza/:id", component:ActualizaComponentComponent}
 
 ]
 
@@ -30,7 +32,8 @@ const AppRoutes:Routes=[
     HomeComponentComponent,
     ProjectsComponentComponent,
     AboutUsComponentComponent,
-    ContactComponentComponent
+    ContactComponentComponent,
+    ActualizaComponentComponent
   ],
 
   imports: [

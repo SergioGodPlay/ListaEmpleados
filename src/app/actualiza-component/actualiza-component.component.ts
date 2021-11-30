@@ -1,30 +1,42 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Empleado } from '../empleado.model';
 import { EmpleadosService } from '../empleados.service';
 import { ServicioEmpleadosService } from '../servicio-empleados.service';
 
 @Component({
-  selector: 'app-projects-component',
-  templateUrl: './projects-component.component.html',
-  styleUrls: ['./projects-component.component.css']
+  selector: 'app-actualiza-component',
+  templateUrl: './actualiza-component.component.html',
+  styleUrls: ['./actualiza-component.component.css']
 })
-export class ProjectsComponentComponent implements OnInit {
+export class ActualizaComponentComponent implements OnInit {
 
   cuadroNombre:string = "";
   cuadroApellido:string = "";
   cuadroCargo:string = "";
   cuadroSalario:string = "";
+  indice:number;
 
-  constructor(private router:Router, private miServicio:ServicioEmpleadosService, private empleadosService:EmpleadosService) { }
+  constructor(private router:Router, private link:ActivatedRoute ,private miServicio:ServicioEmpleadosService, private empleadosService:EmpleadosService) { }
 
-  empleados:Empleado[]=[
-
-  ];
+  empleados:Empleado[]=[];
 
   ngOnInit(): void {
 
     this.empleados = this.empleadosService.empleados;
+
+    this.indice = this.link.snapshot.params["id"];
+
+    let empleado:Empleado = this.empleadosService.encontrarEmpleado(this.indice);
+
+    this.cuadroNombre = empleado.nombre;
+
+    this.cuadroApellido = empleado.apellido;
+
+    this.cuadroCargo = empleado.cargo;
+
+    this.cuadroSalario = empleado.salario;
+
   }
 
   volverHome(){
@@ -32,7 +44,7 @@ export class ProjectsComponentComponent implements OnInit {
       this.router.navigate([""]);
   }
 
-  agregarEmpleado(){
+  actualizarEmpleado(){
 
     let miEmpleado = new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
 
@@ -40,7 +52,7 @@ export class ProjectsComponentComponent implements OnInit {
 
     //Utilizamos el parametro de la clase EmpleadosServices para llamar al metodo agregarEmpleadosServicio 
     //que recibe el campo miEmpleado y lo agrega al arreglo
-    this.empleadosService.agregarEmpleadoServicio(miEmpleado);
+    this.empleadosService.actualizarEmpleado(this.indice, miEmpleado);
 
     const miForm = document.getElementById("miForm");
 

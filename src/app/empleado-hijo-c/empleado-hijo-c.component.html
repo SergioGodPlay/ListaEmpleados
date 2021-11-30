@@ -2,7 +2,11 @@
     <div class="row">
       <div class="col">
         <div>
-          {{indice+1}}: {{empleadoDeLista.nombre}} {{empleadoDeLista.apellido}} {{empleadoDeLista.cargo}} {{empleadoDeLista.salario}}
+
+          <a [routerLink]="['/actualiza', indice]" title="Click para actualizar empleado">
+              {{indice+1}}: {{empleadoDeLista.nombre}} {{empleadoDeLista.apellido}} </a> - {{empleadoDeLista.cargo}} -  {{empleadoDeLista.salario}}
+          
+
         </div>
   
         <app-caracteristicas-empleado-c (caracteristicasEmpleado)="agregarCaracteristica($event)"></app-caracteristicas-empleado-c>
