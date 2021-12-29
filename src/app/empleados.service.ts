@@ -25,6 +25,7 @@ export class EmpleadosService{
         this.empleados.push(empleado);
     }
 
+    //Creamos un nuevo metodo que se encarga de actualizar el empleado
     actualizarEmpleado(indice: number, empleado: Empleado) {
         
         let empleadoModificado = this.empleados[indice];
@@ -43,5 +44,11 @@ export class EmpleadosService{
         let empleado:Empleado = this.empleados[indice];
 
         return empleado;
+    }
+
+    eliminarEmpleado(indice: number){
+
+        this.empleados.splice(indice, 1);
+        
     }
 }

@@ -20,6 +20,8 @@ const AppRoutes:Routes=[
   {path:"proyectos", component:ProjectsComponentComponent},
   {path:"acercaDe", component:AboutUsComponentComponent},
   {path:"contacto", component:ContactComponentComponent},
+
+  //Le pasamos a travez de la url el id del empleado
   {path:"actualiza/:id", component:ActualizaComponentComponent}
 
 ]

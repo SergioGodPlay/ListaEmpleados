@@ -17,14 +17,20 @@ export class ActualizaComponentComponent implements OnInit {
   cuadroSalario:string = "";
   indice:number;
 
+  //Como estamos pasando el id a travez de la URL el constructor debe estar preparado para recibir un parametro
+  //en este caso lo llamamos link y de tipo ActivatedRoute
   constructor(private router:Router, private link:ActivatedRoute ,private miServicio:ServicioEmpleadosService, private empleadosService:EmpleadosService) { }
 
   empleados:Empleado[]=[];
 
+  //Al colocar las instrucciones en el metodo ngOnInit() los cuadros de texto aparecen con la informacion
+  //del empleado al cargar la pagina
   ngOnInit(): void {
 
     this.empleados = this.empleadosService.empleados;
 
+    //Utilizamos la propiedad params con el nombre del parametro que le pasamos por la URL
+    //en este caso "id", * Tiene que ser el mismo nombre que le pasamos a traves de la URL o no funciona *
     this.indice = this.link.snapshot.params["id"];
 
     let empleado:Empleado = this.empleadosService.encontrarEmpleado(this.indice);
@@ -48,18 +54,23 @@ export class ActualizaComponentComponent implements OnInit {
 
     let miEmpleado = new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
 
-    //this.miServicio.muestraMensaje("Nombre del Empleado: " + miEmpleado.nombre);
-
     //Utilizamos el parametro de la clase EmpleadosServices para llamar al metodo agregarEmpleadosServicio 
     //que recibe el campo miEmpleado y lo agrega al arreglo
     this.empleadosService.actualizarEmpleado(this.indice, miEmpleado);
 
-    const miForm = document.getElementById("miForm");
+    //const miForm = document.getElementById("miForm");
 
-    (<HTMLFormElement> miForm).reset();
+    //(<HTMLFormElement> miForm).reset();
 
     this.router.navigate([""]);
 
+  }
+
+  eliminarEmpleado(){
+
+    this.empleadosService.eliminarEmpleado(this.indice);
+
+    this.router.navigate([""]);
   }
 
 }
