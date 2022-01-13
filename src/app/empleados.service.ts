@@ -15,6 +15,7 @@ export class EmpleadosService{
         new Empleado("Katie", "Hartmann", "Directora de Cine", "400.000"),
         new Empleado("Daniela", "Sanchez", "Abogada", "800.000"),
         new Empleado("Laura", "Torres", "Comunicadora Social", "200.000"),
+        new Empleado("Ricardo", "Garay", "Auxiliar de Video y Audio", "1.200.000")
     ];
 
     agregarEmpleadoServicio(empleado:Empleado){
@@ -46,6 +47,7 @@ export class EmpleadosService{
         return empleado;
     }
 
+    //Creamos un nuevo metodo para eliminar el empleado
     eliminarEmpleado(indice: number){
 
         this.empleados.splice(indice, 1);

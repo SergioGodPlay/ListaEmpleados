@@ -3,9 +3,23 @@
       <div class="col">
         <div>
 
-          <a [routerLink]="['/actualiza', indice]" title="Click para actualizar empleado">
-              {{indice+1}}: {{empleadoDeLista.nombre}} {{empleadoDeLista.apellido}} </a> - {{empleadoDeLista.cargo}} -  {{empleadoDeLista.salario}}
-          
+          {{indice+1}}: {{empleadoDeLista.nombre}} {{empleadoDeLista.apellido}} - {{empleadoDeLista.cargo}} - {{empleadoDeLista.salario}}
+
+          &nbsp;&nbsp;
+
+          <a [routerLink]="['/actualiza', indice]" [queryParams]="{accion:'1'}" title="Click para actualizar empleado">
+              
+            Actualizar
+
+          </a>
+
+          &nbsp;&nbsp;
+
+          <a [routerLink]="['/actualiza', indice]" [queryParams]="{accion:'2'}" title="Click para eliminar empleado">
+              
+            Eliminar
+
+          </a>
 
         </div>
   

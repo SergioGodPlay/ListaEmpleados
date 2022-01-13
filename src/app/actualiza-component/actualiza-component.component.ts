@@ -23,9 +23,13 @@ export class ActualizaComponentComponent implements OnInit {
 
   empleados:Empleado[]=[];
 
+  accion:number;
+
   //Al colocar las instrucciones en el metodo ngOnInit() los cuadros de texto aparecen con la informacion
   //del empleado al cargar la pagina
   ngOnInit(): void {
+
+    this.accion = parseInt(this.link.snapshot.queryParams['accion']);
 
     this.empleados = this.empleadosService.empleados;
 
@@ -50,7 +54,7 @@ export class ActualizaComponentComponent implements OnInit {
       this.router.navigate([""]);
   }
 
-  actualizarEmpleado(){
+  /*actualizarEmpleado(){
 
     let miEmpleado = new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
 
@@ -71,6 +75,28 @@ export class ActualizaComponentComponent implements OnInit {
     this.empleadosService.eliminarEmpleado(this.indice);
 
     this.router.navigate([""]);
+  }*/
+
+  accionEmpleado(){
+
+    if(this.accion == 1){
+
+      let miEmpleado = new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
+
+      //Utilizamos el parametro de la clase EmpleadosServices para llamar al metodo agregarEmpleadosServicio 
+      //que recibe el campo miEmpleado y lo agrega al arreglo
+      this.empleadosService.actualizarEmpleado(this.indice, miEmpleado);
+
+    }else{
+
+      this.empleadosService.eliminarEmpleado(this.indice);
+
+      
+    }
+
+    this.router.navigate([""]);
+
+
   }
 
 }
