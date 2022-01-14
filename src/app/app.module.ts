@@ -12,7 +12,7 @@ import { ProjectsComponentComponent } from './projects-component/projects-compon
 import { AboutUsComponentComponent } from './about-us-component/about-us-component.component';
 import { ContactComponentComponent } from './contact-component/contact-component.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ActualizaComponentComponent } from './actualiza-component/actualiza-component.component';
+import { AccionComponentComponent } from './accion-component/accion-component.component';
 
 const AppRoutes:Routes=[
 
@@ -22,7 +22,7 @@ const AppRoutes:Routes=[
   {path:"contacto", component:ContactComponentComponent},
 
   //Le pasamos a travez de la url el id del empleado
-  {path:"actualiza/:id", component:ActualizaComponentComponent}
+  {path:"accion/:id", component:AccionComponentComponent}
 
 ]
 
@@ -35,7 +35,7 @@ const AppRoutes:Routes=[
     ProjectsComponentComponent,
     AboutUsComponentComponent,
     ContactComponentComponent,
-    ActualizaComponentComponent
+    AccionComponentComponent
   ],
 
   imports: [
