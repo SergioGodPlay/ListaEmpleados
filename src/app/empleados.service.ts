@@ -21,6 +21,11 @@ export class EmpleadosService{
         new Empleado("Ricardo", "Garay", "Auxiliar de Video y Audio", "1.200.000")
     ];*/
 
+    setEmpleados(misEmpleados:Empleado[]){
+
+        this.empleados = misEmpleados;
+    }
+
     obtenerEmpleados(){
 
         return this.dataServices.cargarEmpleados();
