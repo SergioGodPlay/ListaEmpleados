@@ -25,4 +25,17 @@ export class DataServices{
 
     }
 
+    actualizarEmpleado(indice:number, empleado:Empleado){
+
+        let url = "https://mis-clientes-ac65c-default-rtdb.firebaseio.com/datos/" + indice + ".json";
+
+        this.httpClient.put(url, empleado).subscribe(
+
+            response=>console.log("Se ha actualizado correctamente el empleado " + response),
+            
+            error=> console.log("Error " + error),
+        );
+
+    }
+
 }

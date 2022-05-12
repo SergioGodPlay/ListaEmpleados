@@ -21,6 +21,7 @@ export class EmpleadosService{
         new Empleado("Ricardo", "Garay", "Auxiliar de Video y Audio", "1.200.000")
     ];*/
 
+    //Este metodo rellena el arreglo de empleados con los valores de la base de datos firebase
     setEmpleados(misEmpleados:Empleado[]){
 
         this.empleados = misEmpleados;
@@ -53,6 +54,8 @@ export class EmpleadosService{
         empleadoModificado.cargo = empleado.cargo;
 
         empleadoModificado.salario = empleado.salario;
+
+        this.dataServices.actualizarEmpleado(indice, empleado);
     }
 
     encontrarEmpleado(indice: number): Empleado {
