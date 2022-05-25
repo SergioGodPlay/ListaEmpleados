@@ -53,8 +53,9 @@ export class HomeComponentComponent implements OnInit {
 
     //Utilizamos el parametro de la clase EmpleadosServices para llamar al metodo agregarEmpleadosServicio 
     //que recibe el campo miEmpleado y lo agrega al arreglo
-    this.empleadosService.agregarEmpleadoServicio(miEmpleado);
 
+    this.empleadosService.agregarEmpleadoServicio(miEmpleado);
+    
     const miForm = document.getElementById("miForm");
 
     (<HTMLFormElement> miForm).reset();

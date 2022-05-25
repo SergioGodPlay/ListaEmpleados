@@ -35,11 +35,12 @@ export class EmpleadosService{
     agregarEmpleadoServicio(empleado:Empleado){
 
         this.ventanaEmergente.muestraMensaje("Persona que se va a agregar: \n" + empleado.nombre
-        + " " + empleado.apellido + "\n" + "Cargo: " + empleado.cargo + "\n" + "Salario: " + empleado.salario);
+            + " " + empleado.apellido + "\n" + "Cargo: " + empleado.cargo + "\n" + "Salario: " + empleado.salario);
 
         this.empleados.push(empleado);
 
         this.dataServices.guardarEmpleados(this.empleados);
+        
     }
 
     //Creamos un nuevo metodo que se encarga de actualizar el empleado
@@ -69,6 +70,10 @@ export class EmpleadosService{
     eliminarEmpleado(indice: number){
 
         this.empleados.splice(indice, 1);
+
+        this.dataServices.eliminarEmpleado(indice);
+
+        if(this.empleados != null) this.dataServices.guardarEmpleados(this.empleados);
         
     }
 }
