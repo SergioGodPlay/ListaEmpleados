@@ -15,6 +15,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccionComponentComponent } from './accion-component/accion-component.component';
 import { DataServices } from './data.services';
 import { HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 
 const AppRoutes:Routes=[
 
@@ -24,7 +25,8 @@ const AppRoutes:Routes=[
   {path:"contacto", component:ContactComponentComponent},
 
   //Le pasamos a travez de la url el id del empleado
-  {path:"accion/:id", component:AccionComponentComponent}
+  {path:"accion/:id", component:AccionComponentComponent},
+  {path:"login", component:LoginComponent}
 
 ]
 
@@ -37,7 +39,8 @@ const AppRoutes:Routes=[
     ProjectsComponentComponent,
     AboutUsComponentComponent,
     ContactComponentComponent,
-    AccionComponentComponent
+    AccionComponentComponent,
+    LoginComponent
   ],
 
   imports: [
